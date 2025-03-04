@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/widgets/gender_card.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,11 +12,26 @@ class BmiCalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark),
       home: Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: Text('BMI Calculator'),
+          title: Text(
+            'BMI Calculator',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: Column(
+          children: [
+            Row(
+              children: [
+                GenderCard(
+                  gender: 'male',
+                ),
+                GenderCard(
+                  gender: 'female',
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
