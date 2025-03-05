@@ -1,13 +1,14 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
-class GenderCard extends StatefulWidget {
+class GenderCard extends StatelessWidget {
   GenderCard({
     super.key,
     required this.gender,
     required this.borderColor,
     required this.icon,
     required this.iconColor,
+    required this.onTap,
   });
 
   final String gender;
@@ -18,34 +19,27 @@ class GenderCard extends StatefulWidget {
 
   Color iconColor;
 
-  @override
-  State<GenderCard> createState() => _GenderCardState();
-}
+  void Function()? onTap;
 
-class _GenderCardState extends State<GenderCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          setState(() {
-            widget.borderColor = kPrimaryColor;
-          });
-        },
+        onTap: onTap,
         child: Container(
             margin: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              border: Border.all(width: 2, color: widget.borderColor),
+              border: Border.all(width: 2, color: borderColor),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(widget.icon, size: 80, color: widget.iconColor),
+                Icon(icon, size: 80, color: iconColor),
                 SizedBox(
                   height: 25,
                 ),
                 Text(
-                  widget.gender,
+                  gender,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                 )
               ],

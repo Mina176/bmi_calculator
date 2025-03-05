@@ -4,14 +4,21 @@ import 'package:bmi_calculator/widgets/gender_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   HomeView({
     super.key,
   });
 
   static final String routeName = 'Home Page';
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   Color currentBorderColor = kInactiveBorderColor;
+  Color maleCardColor = kInactiveBorderColor;
+  Color femaleCardColor = kInactiveBorderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +36,15 @@ class HomeView extends StatelessWidget {
                 children: [
                   Expanded(
                     child: GenderCard(
-                      borderColor: currentBorderColor,
+                      onTap: () {
+                        setState(() {
+                          if (maleCardColor == kInactiveBorderColor) {
+                            maleCardColor = kPrimaryColor;
+                            femaleCardColor = kInactiveBorderColor;
+                          }
+                        });
+                      },
+                      borderColor: maleCardColor,
                       gender: 'male',
                       icon: FontAwesomeIcons.mars,
                       iconColor: kMaleColor,
@@ -37,7 +52,15 @@ class HomeView extends StatelessWidget {
                   ),
                   Expanded(
                     child: GenderCard(
-                      borderColor: currentBorderColor,
+                      onTap: () {
+                        setState(() {
+                          if (femaleCardColor == kInactiveBorderColor) {
+                            femaleCardColor = kPrimaryColor;
+                            maleCardColor = kInactiveBorderColor;
+                          }
+                        });
+                      },
+                      borderColor: femaleCardColor,
                       gender: 'female',
                       icon: FontAwesomeIcons.venus,
                       iconColor: kFemaleColor,
