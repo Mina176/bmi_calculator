@@ -1,47 +1,54 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
-class GenderCard extends StatelessWidget {
-  const GenderCard({
+class GenderCard extends StatefulWidget {
+  GenderCard({
     super.key,
     required this.gender,
+    required this.borderColor,
+    required this.icon,
+    required this.iconColor,
   });
 
   final String gender;
 
+  Color borderColor;
+
+  final IconData icon;
+
+  Color iconColor;
+
+  @override
+  State<GenderCard> createState() => _GenderCardState();
+}
+
+class _GenderCardState extends State<GenderCard> {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
+    return GestureDetector(
+        onTap: () {
+          setState(() {
+            widget.borderColor = kPrimaryColor;
+          });
+        },
         child: Container(
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 2,
-              color: const Color.fromARGB(255, 219, 219, 219),
+            margin: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              border: Border.all(width: 2, color: widget.borderColor),
+              borderRadius: BorderRadius.circular(20),
             ),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 120,
-                  height: 120,
-                  child: Image.asset('images/$gender.png'),
-                ),
+                Icon(widget.icon, size: 80, color: widget.iconColor),
                 SizedBox(
                   height: 25,
                 ),
                 Text(
-                  gender,
+                  widget.gender,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                 )
               ],
-            ),
-          ),
-        ),
-      ),
-    );
+            )));
   }
 }
