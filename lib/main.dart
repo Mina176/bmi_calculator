@@ -1,5 +1,4 @@
-import 'package:bmi_calculator/views/home_view.dart';
-import 'package:bmi_calculator/views/test_view.dart';
+import 'package:bmi_calculator/views/input_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +12,11 @@ class BmiCalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
-      initialRoute: HomeView.routeName,
+      home: InputView(),
+      initialRoute: InputView.routeName,
       routes: {
-        HomeView.routeName: (context) => HomeView(),
-        TestView.routeName: (context) => const TestView(),
+        InputView.routeName: (context) => InputView(),
+        
       },
     );
   }

@@ -2,48 +2,46 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:vertical_weight_slider/vertical_weight_slider.dart';
 
-class TestView extends StatefulWidget {
-  const TestView({super.key});
+class HorizontalSlider extends StatefulWidget {
+  HorizontalSlider(
+      {super.key,
+      required this.controller,
+      required this.height,
+      required this.label});
   static final String routeName = 'Test View';
 
+  final String label;
+
+  final WeightSliderController controller;
+
+  int height;
+
   @override
-  State<TestView> createState() => _TestViewState();
+  State<HorizontalSlider> createState() => _HorizontalSliderState();
 }
 
-class _TestViewState extends State<TestView> {
-  late WeightSliderController _controller;
-
-  int height = 170;
-
+class _HorizontalSliderState extends State<HorizontalSlider> {
   @override
-  void initState() {
-    super.initState();
-    _controller = WeightSliderController(
-        initialWeight: height, minWeight: 120, interval: 1);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Test View'),
-          centerTitle: true,
-        ),
-        body: Column(
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
           children: [
             Text(
-              'Height (in cm)',
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
+              widget.label,
+              style: kTextStyle,
             ),
             Text(
-              "$height",
+              "${widget.height}",
               style: TextStyle(fontSize: 32.0, fontWeight: FontWeight.w500),
             ),
             SizedBox(
               height: 50,
               child: VerticalWeightSlider(
                 isVertical: false,
-                controller: _controller,
+                controller: widget.controller,
                 decoration: const PointerDecoration(
                   width: 30.0,
                   height: 3.0,
@@ -52,7 +50,7 @@ class _TestViewState extends State<TestView> {
                 ),
                 onChanged: (int value) {
                   setState(() {
-                    height = value;
+                    widget.height = value;
                   });
                 },
                 indicator: Container(
@@ -63,16 +61,9 @@ class _TestViewState extends State<TestView> {
                 ),
               ),
             ),
-            Spacer(),
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  size: 80,
-                ))
           ],
-        ));
+        ),
+      ],
+    );
   }
 }

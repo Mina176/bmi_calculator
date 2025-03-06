@@ -1,14 +1,11 @@
-import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomGeneralCard extends StatelessWidget {
-  CustomGeneralCard({
+  const CustomGeneralCard({
     super.key,
-    this.borderColor = const Color(0xffdbdbdb),
     required this.cardChild,
   });
 
-  Color borderColor;
   final Widget cardChild;
 
   @override
@@ -17,7 +14,7 @@ class CustomGeneralCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          border: Border.all(width: 2, color: borderColor),
+          border: Border.all(width: 4, color: const Color(0xffdbdbdb)),
           borderRadius: BorderRadius.circular(20),
         ),
         child: cardChild,

@@ -2,7 +2,7 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
 class GenderCard extends StatelessWidget {
-  GenderCard({
+  const GenderCard({
     super.key,
     required this.gender,
     required this.borderColor,
@@ -13,13 +13,13 @@ class GenderCard extends StatelessWidget {
 
   final String gender;
 
-  Color borderColor;
+  final Color borderColor;
 
   final IconData icon;
 
-  Color iconColor;
+  final Color iconColor;
 
-  void Function()? onTap;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class GenderCard extends StatelessWidget {
         child: Container(
             margin: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              border: Border.all(width: 2, color: borderColor),
+              border: Border.all(width: 4, color: borderColor),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -40,7 +40,7 @@ class GenderCard extends StatelessWidget {
                 ),
                 Text(
                   gender,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                  style: kTextStyle,
                 )
               ],
             )));
