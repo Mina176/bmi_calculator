@@ -4,5 +4,8 @@ const kMaleColor = Color(0xFF0091ff);
 const kFemaleColor = Color(0xFFef50f2);
 const kInactiveBorderColor = Color(0xffdbdbdb);
 const kPrimaryColor = Color(0xFF2566CF);
-
-const kTextStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 20);
+const kSecondaryColor = Color(0xFF0B1028);
+const kTextStyle =
+    TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold, fontSize: 18);
+const kTitleTextStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 30);
+const kNumberTextStyle = TextStyle(fontSize: 32, fontWeight: FontWeight.w600);

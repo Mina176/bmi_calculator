@@ -1,5 +1,5 @@
-
-import 'package:bmi_calculator/widgets/custom_counter_icon.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/widgets/custom_counter_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -8,35 +8,43 @@ class CustomCounter extends StatefulWidget {
     super.key,
   });
 
+  static int counter = 22;
+
   @override
   State<CustomCounter> createState() => _CustomCounterState();
 }
 
 class _CustomCounterState extends State<CustomCounter> {
-  int counter = 24;
-
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      CustomCounterIcon(
+      CustomCounterButton(
         icon: FontAwesomeIcons.minus,
         onTap: () {
           setState(() {
-            counter--;
+            CustomCounter.counter <= 0
+                ? CustomCounter.counter = 0
+                : CustomCounter.counter--;
           });
         },
       ),
-      SizedBox(width: 20),
-      Text(
-        counter.toString(),
-        style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+      SizedBox(
+        width: 80,
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            CustomCounter.counter.toString(),
+            style: kNumberTextStyle,
+          ),
+        ),
       ),
-      SizedBox(width: 20),
-      CustomCounterIcon(
+      CustomCounterButton(
         icon: FontAwesomeIcons.plus,
         onTap: () {
           setState(() {
-            counter++;
+            CustomCounter.counter >= 99
+                ? CustomCounter.counter = 99
+                : CustomCounter.counter++;
           });
         },
       )

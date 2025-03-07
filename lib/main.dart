@@ -12,12 +12,8 @@ class BmiCalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Poppins'),
       home: InputView(),
-      initialRoute: InputView.routeName,
-      routes: {
-        InputView.routeName: (context) => InputView(),
-        
-      },
     );
   }
 }

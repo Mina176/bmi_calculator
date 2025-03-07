@@ -1,6 +1,8 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:flutter/material.dart';
 
+enum Gender { male, female }
+
 class GenderCard extends StatelessWidget {
   const GenderCard({
     super.key,
@@ -11,7 +13,7 @@ class GenderCard extends StatelessWidget {
     required this.onTap,
   });
 
-  final String gender;
+   final  Gender gender;
 
   final Color borderColor;
 
@@ -39,7 +41,7 @@ class GenderCard extends StatelessWidget {
                   height: 25,
                 ),
                 Text(
-                  gender,
+                 gender.name ,
                   style: kTextStyle,
                 )
               ],

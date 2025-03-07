@@ -2,16 +2,10 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/widgets/custom_counter.dart';
 import 'package:flutter/material.dart';
 
-class AgeCard extends StatefulWidget {
-  AgeCard({super.key, this.age});
-
-  int? age = 24;
-
-  @override
-  State<AgeCard> createState() => _AgeCardState();
-}
-
-class _AgeCardState extends State<AgeCard> {
+class AgeCard extends StatelessWidget {
+  const AgeCard({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +16,7 @@ class _AgeCardState extends State<AgeCard> {
           style: kTextStyle,
         ),
         SizedBox(
-          height: 40,
+          height: 36,
         ),
         CustomCounter()
       ],

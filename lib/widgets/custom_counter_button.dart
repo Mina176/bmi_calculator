@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CustomCounterIcon extends StatelessWidget {
-  const CustomCounterIcon({super.key, required this.icon, required this.onTap});
+class CustomCounterButton extends StatelessWidget {
+  const CustomCounterButton(
+      {super.key, required this.icon, required this.onTap});
 
   final IconData icon;
   final void Function()? onTap;
@@ -13,7 +14,7 @@ class CustomCounterIcon extends StatelessWidget {
           height: 25,
           width: 25,
           decoration: BoxDecoration(
-            border: Border.all(width: 2.5, color: const Color(0xff94969C)),
+            border: Border.all(width: 2.5, color: const Color(0xFF93959B)),
             borderRadius: BorderRadius.circular(5),
           ),
           child: Icon(
