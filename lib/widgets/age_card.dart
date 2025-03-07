@@ -9,14 +9,14 @@ class AgeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: 35),
         Text(
           'Age',
           style: kTextStyle,
         ),
         SizedBox(
-          height: 36,
+          height: 32,
         ),
         CustomCounter()
       ],

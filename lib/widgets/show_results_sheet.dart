@@ -8,12 +8,12 @@ enum Status { underweight, normal, overweight, obese }
 class ShowResultsSheet extends StatelessWidget {
   ShowResultsSheet({super.key});
 
-  double bmi =
+  final double bmi =
       (InputViewBody.weight / (InputViewBody.height * InputViewBody.height)) *
           10000;
-  Status status = Status.normal;
+  late Status status = Status.normal;
 
-  Map<Status, String> statusMessages = {
+  final Map<Status, String> statusMessages = {
     Status.underweight:
         'A BMI of less than 18.5 indicates that you are underweight for your height. Being underweight can weaken your immune system, lead to nutritional deficiencies, and increase the risk of health issues such as osteoporosis and anemia. Its important to aim for a balanced diet and consult a healthcare professional to reach a healthy weight.',
     Status.normal:
@@ -45,9 +45,9 @@ class ShowResultsSheet extends StatelessWidget {
           child: Column(
             children: [
               Text('Gender is ${InputViewBody.gender.name}'),
-              Text('Age is ' '${CustomCounter.counter.toString()}'),
-              Text('Height is ${InputViewBody.height} cm'),
-              Text('Weight is ${InputViewBody.weight} kg'),
+              Text('Age = ' '${CustomCounter.counter.toString()}' ' years'),
+              Text('Height = ${InputViewBody.height} cm'),
+              Text('Weight = ${InputViewBody.weight} kg'),
               SizedBox(height: 20),
               Text('Your BMI is'),
               SizedBox(height: 5),
