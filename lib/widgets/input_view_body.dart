@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/views/input_view.dart';
 import 'package:bmi_calculator/widgets/horizontal_slider.dart';
 import 'package:bmi_calculator/widgets/age_card.dart';
 import 'package:bmi_calculator/widgets/custom_general_card.dart';
@@ -40,6 +41,7 @@ class _InputViewBodyState extends State<InputViewBody> {
                 child: GenderCard(
                   onTap: () {
                     setState(() {
+                      InputViewBody.gender = Gender.male;
                       if (InputViewBody.maleCardColor == kInactiveBorderColor) {
                         InputViewBody.maleCardColor = kPrimaryColor;
                         InputViewBody.femaleCardColor = kInactiveBorderColor;
@@ -56,6 +58,7 @@ class _InputViewBodyState extends State<InputViewBody> {
                 child: GenderCard(
                   onTap: () {
                     setState(() {
+                      InputViewBody.gender = Gender.female;
                       if (InputViewBody.femaleCardColor ==
                           kInactiveBorderColor) {
                         InputViewBody.femaleCardColor = kPrimaryColor;
@@ -112,7 +115,7 @@ class _InputViewBodyState extends State<InputViewBody> {
             ],
           ),
         ),
-        SizedBox(height: 60)
+        SizedBox(height: 40)
       ],
     );
   }

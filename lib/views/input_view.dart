@@ -2,11 +2,13 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/widgets/input_view_body.dart';
 import 'package:bmi_calculator/widgets/show_results_sheet.dart';
 import 'package:flutter/material.dart';
+  enum Gender { male, female }
 
 class InputView extends StatefulWidget {
   const InputView({
     super.key,
   });
+   
 
   @override
   State<InputView> createState() => _InputViewState();

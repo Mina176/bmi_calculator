@@ -1,7 +1,8 @@
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/views/input_view.dart';
 import 'package:flutter/material.dart';
 
-enum Gender { male, female }
+
 
 class GenderCard extends StatelessWidget {
   const GenderCard({

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 enum Status { underweight, normal, overweight, obese }
 
+// ignore: must_be_immutable
 class ShowResultsSheet extends StatelessWidget {
   ShowResultsSheet({super.key});
 
@@ -21,7 +22,7 @@ class ShowResultsSheet extends StatelessWidget {
     Status.overweight:
         'A BMI of 25 - 29.9 suggests that you are overweight for your height. Carrying excess weight can increase your risk of developing health problems such as type 2 diabetes, high blood pressure, and heart disease. Adopting a healthier lifestyle, including a balanced diet and regular exercise, can help you achieve a healthier weight.',
     Status.obese:
-        'A BMI of 30 or higher indicates obesity, which means you are carrying excess body fat for your height. Obesity significantly raises the risk of serious health conditions, including heart disease, stroke, type 2 diabetes, and certain cancers. Managing weight through a combination of healthy eating, physical activity, and medical guidance is crucial for improving overall health and reducing these risks.'
+        'A BMI of 30 or higher indicates obesity, which means you are carrying excess body fat for your height. Obesity significantly raises the risk of serious health conditions, including heart disease, stroke, type 2 diabetes, Managing weight through a combination of healthy eating and  physical activity is crucial for improving overall health.'
   };
   @override
   Widget build(BuildContext context) {
@@ -41,29 +42,44 @@ class ShowResultsSheet extends StatelessWidget {
         width: double.infinity,
         color: kPrimaryColor,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text('Gender is ${InputViewBody.gender.name}'),
-              Text('Age = ' '${CustomCounter.counter.toString()}' ' years'),
-              Text('Height = ${InputViewBody.height} cm'),
-              Text('Weight = ${InputViewBody.weight} kg'),
+              SizedBox(height: 15),
+              Text(
+                'Gender is ${InputViewBody.gender.name}',
+                style: kResultsTextStyle,
+              ),
+              Text(
+                'Age = ' '${CustomCounter.counter.toString()}' ' years',
+                style: kResultsTextStyle,
+              ),
+              Text(
+                'Height = ${InputViewBody.height} cm',
+                style: kResultsTextStyle,
+              ),
+              Text(
+                'Weight = ${InputViewBody.weight} kg',
+                style: kResultsTextStyle,
+              ),
               SizedBox(height: 20),
-              Text('Your BMI is'),
+              Text(
+                'Your BMI is',
+                style: kResultsTextStyle,
+              ),
               SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     '${bmi.toStringAsFixed(1)} kg/m',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                   ),
                   Column(
                     children: [
                       Text(
                         '2',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
+                        style: kResultsTextStyle,
                       ),
                       SizedBox(height: 10)
                     ],
@@ -71,9 +87,10 @@ class ShowResultsSheet extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 5),
-              Text(status.name, style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(status.name, style: kResultsTextStyle),
               SizedBox(height: 5),
               Text(
+                style: kResultsTextStyle,
                 textAlign: TextAlign.center,
                 statusMessages[status]!,
               ),
